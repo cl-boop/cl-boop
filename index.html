@@ -1,0 +1,100 @@
+<!DOCKTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<style type="text/css">
+  body, table, select, input, tr, td {
+   border: none;
+   padding: 0;
+   margin: 0;
+   width: 100%;
+  }
+  body {
+  background-color: #fff;
+  font: normal normal 32px/1.5 verdana, arial;
+  text-rendering: optimizeLegibility;
+  text-decoration-skip: objects;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  }
+  table, select, input {
+   display: block;
+  }
+  td {
+   border-bottom: 0.1em dotted #000;
+   height: 3em;
+  }
+  .td1 {
+   width: 70%;
+   padding-left: 2em;
+  }
+  .td2 {
+   background-color: #eee;
+   width: 30%;
+   text-align: center;
+   font-weight: bold;
+   font-size: 1.1em;
+   vertical-align: middle;
+  }
+  select, input {
+   height: 100%;
+   width: 100%;
+   background-color: #eee;
+   text-align: center;
+   font-weight: bold;
+   font-size:1em;
+   vertical-align: middle;
+  }
+</style>
+<title>test</title>
+</head>
+<body>
+ <table id="metall">
+  <tr>
+   <td class="td1">Марка металла</td>
+   <td class="td2">
+    <select id="grade">
+     <option value="7670">20x13</option>
+     <option value="7680">25x13</option>
+     <option value="7650">40x13</option>
+     <option value="8400">ЛС59</option>
+     <option value="2770">Д16Т</option>
+   </td>
+  </tr>
+  <tr>
+   <td class="td1">Длина прутка</td>
+   <td class="td2">
+    <input type="number" id="lenght">
+   </td>
+  </tr>
+  <tr>
+   <td class="td1">Диаметр</td>
+   <td class="td2">
+    <input type="number" id="diameter">
+   </td>
+  </tr>
+  <tr>
+   <td class="td1">Сколько прутков</td>
+   <td class="td2">
+    <input type="number" id="num">
+   </td>
+  </tr>
+  <tr>
+   <td class="td1">Вес</td>
+   <td class="td2" id="weight">
+   </td>
+  </tr>
+  
+<script type="text/javascript">
+  document.getElementById('metall').addEventListener('input', function(event){
+   var total_weight = 
+     Math.PI *
+     Math.pow((document.getElementById('diameter').value * 0.5 * 0.001), 2) *
+     document.getElementById('grade').value *
+     document.getElementById('lenght').value *
+     document.getElementById('num').value;
+   document.getElementById('weight').innerHTML = total_weight.toFixed(2);
+  });
+</script>
+</body>
+</html>
